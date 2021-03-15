@@ -1,6 +1,6 @@
 {
   "name": "split.panel.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Library provides the functions to implement the split views in web page",
   "main": "dist/splitpanel.js",
   "scripts": {
