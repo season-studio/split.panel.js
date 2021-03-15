@@ -1,4 +1,5 @@
-import { getTopZIndex, eventCoordinateFromElement, NumberFromStyle, assert } from "./toolkit";
+import { getTopZIndex, eventCoordinateFromElement, NumberFromStyle } from "./toolkit/src/domKits";
+import { assert } from "./toolkit/src/assert";
 import SplitType from "./splitType";
 
 // the private member
@@ -82,6 +83,7 @@ const eventHandlers = {
         // peek the index of panel that will be swap
         if (_e.type === "dblclick") {
             panelIndex = _e.target ? NumberFromStyle(_e.target.getAttribute("d-split-bar"), -1) : -1;
+            this.querySelector(`:scope>*[d-split-panel="${panelIndex}"]:not([d-split-noautoswap])`) || (panelIndex = -1);
         } else {
             for (let item of _e.composedPath()) {
                 panelIndex = (item instanceof HTMLElement ? NumberFromStyle(item.getAttribute("d-split-panel"), -1) : -1);
